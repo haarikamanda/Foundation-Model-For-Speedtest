@@ -6,8 +6,11 @@ import itertools
 import numpy as np
 from transformers import PreTrainedTokenizer, BatchEncoding
 from datasets.formatting.formatting import LazyBatch
-
+import pdb 
 PROTOS_TO_LEN = {6: 18, 1: 13, 17: 12}  # TODO(maybe-hello-world): refactor
+
+#remove padding from flows/bursts, just add the CLS tokens to the dataset, padding token is not needed 
+# ['flow_duration', 'burst_tokens', 'directions', 'bytes', 'iats', 'rts', 'protocol', 'labels', 'total_bursts']
 
 
 class NetFoundTokenizer(PreTrainedTokenizer):
@@ -20,8 +23,8 @@ class NetFoundTokenizer(PreTrainedTokenizer):
 
     def __init__(self, config):
         self.vocab_size = config.vocab_size
-        self.max_bursts = config.max_bursts
-        self.max_burst_length = config.max_burst_length
+        self.max_bursts = 200000
+        self.max_burst_length = 200000
         self.p = config.p
         self.pretraining = config.pretraining
         self.name_or_path = config.name_or_path
@@ -89,7 +92,7 @@ class NetFoundTokenizer(PreTrainedTokenizer):
         if token is not None:
             return [[token] + burst for burst in flow]
         else:
-            return [[burst[0]] + burst for burst in flow]
+            return [ burst for burst in flow]
 
     @staticmethod
     def convert_to_tokens(flow: list[list[int]], add_one: bool = False) -> list[list[int]]:
@@ -124,125 +127,218 @@ class NetFoundTokenizer(PreTrainedTokenizer):
             for idx, flow in enumerate(flows)
         ]
 
-    @staticmethod
-    def multiply_burst_values(flows: list[list[float]], multiplier: float) -> list[list[float]]:
-        return [
-            [burst_value * multiplier for burst_value in flow]
-            for flow in flows
-        ]
-
     def tokenize(self, text, **kwargs):
-        dataset: LazyBatch = text
-        dataset['iats'] = self.multiply_burst_values(dataset['iats'], 1e-3)
-        dataset_burst_sizes = [[len(burst) for burst in flow] for flow in dataset["burst_tokens"]]
+        try:
+            dataset: LazyBatch = text
+            # dataset_burst_sizes = [[len(burst) for burst in flow] for flow in dataset["burst_tokens"]]
 
-        if not self.pretraining and "labels" in dataset:
-            labels = np.array(dataset["labels"], dtype=int)
-            if self.p > 0:
-                num_noise_samples = int(self.p * len(labels))
-                indices = random.sample(range(0, len(labels) - 1), num_noise_samples)
-                noisy_labels = np.random.random_integers(
-                    0, 10, size=(num_noise_samples,)  # TODO(maybe-hello-world): refactor 0, 10 to min, max values of labels
-                )
-                labels[indices] = noisy_labels
-            labels = labels.tolist()
-        if self.limit_bursts:
-            raise NotImplementedError("limit_bursts is not implemented")
-            protos = dataset["protocol"]
-            bursts_packets = [
-                [
-                    len(j) / PROTOS_TO_LEN[int(protos[idx])]
-                    for j in
-                    dataset["burst_tokens"][idx]
-                ]
-                for idx in range(len(dataset["burst_tokens"]))
-            ]
-            idx_cutoff = []
-            for flow in bursts_packets:
-                sumVal = 0
-                idx = -1
-                for i in range(len(flow)):
-                    sumVal += flow[i]
-                    if sumVal > 5:
-                        idx = max(i, 1)
-                        break
-                if idx > 0:
-                    idx_cutoff.append(idx)
-                else:
-                    idx_cutoff.append(len(flow))
-            input_ids, attention_mask = self.tokenize_fields_with_attn(
-                self.trunc_flow(dataset["burst_tokens"], idx_cutoff), self.CLS_TOKEN, add_one=True
-            )
-            total_bursts = [len(flow) - 1 for flow in self.trunc_flow(dataset["burst_tokens"], idx_cutoff)]
-            direction = self.tokenize_fields(self.trunc_flow(dataset["directions"], idx_cutoff))
-            pkt_bytes = self.tokenize_fields(self.trunc_flow(dataset["bytes"], idx_cutoff))
-            pkt_count = self.tokenize_fields(self.trunc_flow(dataset["counts"], idx_cutoff))
-            iats = self.tokenize_fields(self.trunc_flow(dataset["iats"], idx_cutoff))
-        else:
+            # if not self.pretraining and "labels" in dataset:
+            #     labels = np.array(dataset["labels"], dtype=int)
+            #     if self.p > 0:
+            #         num_noise_samples = int(self.p * len(labels))
+            #         indices = random.sample(range(0, len(labels) - 1), num_noise_samples)
+            #         noisy_labels = np.random.random_integers(
+            #             0, 10, size=(num_noise_samples,)  # TODO(maybe-hello-world): refactor 0, 10 to min, max values of labels
+            #         )
+            #         labels[indices] = noisy_labels
+            #     labels = labels.tolist()
             # restore directions: true/false -> 1/-1
             direction = [[1 if direction else -1 for direction in flow] for flow in dataset["directions"]]
-            direction = self.tokenize_fields(self._expand_bursts(direction, dataset_burst_sizes))
 
-            pkt_bytes = self.tokenize_fields(self._expand_bursts(dataset["bytes"], dataset_burst_sizes))
-            pkt_count = self.tokenize_fields(self._expand_bursts(dataset["counts"], dataset_burst_sizes))
-            iats = self.tokenize_fields(self._expand_bursts(dataset["iats"], dataset_burst_sizes))
+            direction = self.tokenize_fields(direction)
+            # direction = self.tokenize_fields(self._expand_bursts(direction, dataset_burst_sizes))
+
+            pkt_bytes = self.tokenize_fields(dataset["bytes"])
+            iats = self.tokenize_fields(dataset["iats"])
             input_ids, attention_mask = self.tokenize_fields_with_attn(
                 dataset["burst_tokens"], prepend_token=self.CLS_TOKEN, add_one=True
             )
-            total_bursts = [len(flow) for flow in dataset["burst_tokens"]]
+            # pkt_count = self.tokenize_fields(self._expand_bursts(dataset["counts"], dataset_burst_sizes))
+            # iats = self.tokenize_fields(self._expand_bursts(dataset["iats"], dataset_burst_sizes))
+            # input_ids, attention_mask = self.tokenize_fields_with_attn(
+            #     dataset["burst_tokens"], prepend_token=self.CLS_TOKEN, add_one=True
+            # )
+            # total_bursts = [len(flow) for flow in dataset["burst_tokens"]]
 
-        batchDict = {
-            "input_ids": input_ids,
-            "attention_mask": attention_mask,
-            "direction": direction,
-            "bytes": pkt_bytes,
-            "pkt_count": pkt_count,
-            "iats": iats,
-            "total_bursts": total_bursts,
-            "flow_duration": dataset["flow_duration"],
-            "protocol": dataset["protocol"],
-        }
-        if not self.pretraining and "labels" in dataset:
-            batchDict.update({"labels": labels})
+            # batchDict = {
+            #     "input_ids": input_ids,
+            #     "attention_mask": attention_mask,
+            #     "direction": direction,
+            #     "bytes": pkt_bytes,
+            #     "pkt_count": pkt_count,
+            #     "iats": iats,
+            #     "total_bursts": total_bursts,
+            #     "flow_duration": dataset["flow_duration"],
+            #     "protocol": dataset["protocol"],
+            # }
 
-        return BatchEncoding(batchDict)
+            # ['flow_duration', 'burst_tokens', 'directions', 'bytes', 'iats', 'rts', 'protocol', 'labels', 'total_bursts']
+            # pdb.set_trace()
+            all_chunked_input_ids = []
+            all_chunked_metadata = []
+            for i in range(len(input_ids)):
+                chunks, metadata = chunk_with_sliding_window(
+                    input_ids[i], dataset["rts"][i],attention_mask[i],direction[i],pkt_bytes[i],iats[i],dataset["flow_duration"][i],dataset["protocol"]
+                )
+            all_chunked_input_ids.extend(chunks)
+            all_chunked_metadata.extend(metadata)
+            # pdb.set_trace()
+            # Prepare the BatchEncoding with the chunked data
+            batchDict = {
+                "burst_tokens": [meta["protocol"] for meta in all_chunked_metadata],
+                "input_ids": all_chunked_input_ids,
+                "attention_mask":[meta["attention_mask"] for meta in all_chunked_metadata],  # Update this as needed based on chunking logic
+                "directions": [meta["direction"] for meta in all_chunked_metadata],
+                "bytes": [meta["bytes"] for meta in all_chunked_metadata],
+                "iats": [meta["iats"] for meta in all_chunked_metadata],
+                "rts": [meta["rts"] for meta in all_chunked_metadata],
+                "flow_duration": [meta["flow_duration"] for meta in all_chunked_metadata],
+                "protocol": [meta["protocol"] for meta in all_chunked_metadata],
+                "total_bursts":[meta["total_bursts"] for meta in all_chunked_metadata]
+            }
+            # pdb.set_trace()
+            # batchDict = {
+            # "input_ids": input_ids,
+            # "attention_mask": attention_mask,
+            # "direction": direction, #done 
+            # "bytes": pkt_bytes, #done
+            # "iats": iats, #done 
+            # "rts": dataset["rts"], #done 
+            # "flow_duration": dataset["flow_duration"], #done 
+            # "protocol": dataset["protocol"], #done 
+            # }
+            # if not self.pretraining and "labels" in dataset:
+            #     batchDict.update({"labels": labels})
+            # flattened_input_ids = [list(itertools.chain.from_iterable(item)) for item in input_ids]
+            return BatchEncoding(batchDict)
+        except Exception as e:
+            print(f"Tokenizer error: {e}")
 
+    # def tokenize_fields(
+    #         self,
+    #         dataset: list[list[list[int]]],
+    #         prepend_token: int = None,
+    #         add_one: bool = False
+    # ) -> list[list[list[int]]]:
+    #     tokenized_data = [
+    #         self.pad_flow(
+    #             self.pad_bursts(
+    #                 self.prepend_to_list(self.convert_to_tokens(flow, add_one), prepend_token),
+    #                 self.max_burst_length,
+    #             ),
+    #             self.max_bursts,
+    #         )
+    #         for flow in dataset
+    #     ]
+
+        # return tokenized_data
+    
     def tokenize_fields(
-            self,
-            dataset: list[list[list[int]]],
-            prepend_token: int = None,
-            add_one: bool = False
-    ) -> list[list[list[int]]]:
+        self,
+        dataset: list[list[list[int]]],
+        prepend_token: int = None,
+        add_one: bool = False
+        ) -> list[list[list[int]]]:
         tokenized_data = [
-            self.pad_flow(
-                self.pad_bursts(
-                    self.prepend_to_list(self.convert_to_tokens(flow, add_one), prepend_token),
-                    self.max_burst_length,
-                ),
-                self.max_bursts,
-            )
+            self.prepend_to_list(self.convert_to_tokens(flow, add_one), prepend_token)
             for flow in dataset
         ]
-
         return tokenized_data
 
+    # def tokenize_fields_with_attn(
+    #         self,
+    #         dataset: list[list[list[int]]],
+    #         prepend_token: int = None,
+    #         add_one: bool = False
+    # ) -> Tuple[list[list[list[int]]], list[list[list[int]]]]:
+    #     tokenized_data = self.tokenize_fields(dataset, prepend_token, add_one)
+    #     attn = [
+    #         self.pad_flow(
+    #             self.pad_bursts(
+    #                 self.prepend_to_list(self.convert_to_attn(flow), self.ATTN_PRESENCE_TOKEN),
+    #                 max_burst_length=self.max_burst_length,
+    #                 pad_token=self.ATTN_ABSENCE_TOKEN
+    #             ),
+    #             max_bursts=self.max_bursts,
+    #             token=self.ATTN_ABSENCE_TOKEN
+    #         )
+    #         for flow in dataset
+    #     ]
+    #     return tokenized_data, attn
+
     def tokenize_fields_with_attn(
-            self,
-            dataset: list[list[list[int]]],
-            prepend_token: int = None,
-            add_one: bool = False
-    ) -> Tuple[list[list[list[int]]], list[list[list[int]]]]:
+        self,
+        dataset: list[list[list[int]]],
+        prepend_token: int = None,
+        add_one: bool = False
+) -> Tuple[list[list[list[int]]], list[list[list[int]]]]:
+        # Tokenize data without padding
         tokenized_data = self.tokenize_fields(dataset, prepend_token, add_one)
+        
+        # Generate attention masks without padding
         attn = [
-            self.pad_flow(
-                self.pad_bursts(
-                    self.prepend_to_list(self.convert_to_attn(flow), self.ATTN_PRESENCE_TOKEN),
-                    max_burst_length=self.max_burst_length,
-                    pad_token=self.ATTN_ABSENCE_TOKEN
-                ),
-                max_bursts=self.max_bursts,
-                token=self.ATTN_ABSENCE_TOKEN
-            )
+            self.prepend_to_list(self.convert_to_attn(flow), self.ATTN_PRESENCE_TOKEN)
             for flow in dataset
         ]
+        
         return tokenized_data, attn
+
+def chunk_with_sliding_window(input_ids: list[list[int]], timestamps: list[list[int]],attention_mask:list, direction:list[int],pkt_bytes:list[int],iats:list[int],flow_duration:int,protocol:int,window_size_ms: int = 100, step_size_ms: int = 10, min_packets: int = 12) -> Tuple[list[list[int]], list[dict]]:
+    # """
+    # Chunk input_ids using a sliding window based on timestamps.
+
+    # Parameters:
+    # - input_ids (list[list[int]]): The list of tokenized packets for a flow.
+    # - timestamps (list[int]): Corresponding timestamps for each packet in nanoseconds.
+    # - window_size_ms (int): Size of the window in milliseconds (default: 100ms).
+    # - step_size_ms (int): Step size for the sliding window in milliseconds (default: 10ms).
+    # - min_packets (int): Minimum number of packets in a window. Pad if fewer.
+
+    # Returns:
+    # - Tuple containing the chunked input_ids and a list of corresponding metadata dictionaries.
+    # """
+    # Convert timestamps from nanoseconds to milliseconds
+    timestamps_ms = [ts / 1e6 for ts in timestamps]
+
+    chunked_input_ids = []
+    chunked_metadata = []  # Holds metadata like direction, bytes, iats, etc.
+
+    start_idx = 0
+    end_idx = 0
+    num_packets = len(timestamps_ms)
+
+    while start_idx < num_packets:
+        window_start_time = timestamps_ms[start_idx]
+        window_end_time = window_start_time + window_size_ms
+
+        # Find the end index for the current window
+        while end_idx < num_packets and timestamps_ms[end_idx] <= window_end_time:
+            end_idx += 1
+
+        # Create the chunk
+        chunk = input_ids[start_idx:end_idx]
+        if len(chunk) < min_packets:
+            # Pad the chunk with PAD_TOKEN
+            chunk += [[NetFoundTokenizer.PAD_TOKEN] * len(input_ids[0])] * (min_packets - len(chunk))
+            attention_mask += [[0] * len(attention_mask[0])]  * (min_packets - len(chunk))
+        # Add the chunk and its corresponding metadata
+        chunked_input_ids.append(chunk)
+        total_bursts=len(chunk)
+        chunked_metadata.append({
+            "timestamps": timestamps[start_idx:end_idx] + [0] * (min_packets - len(chunk)),  # Pad timestamps if needed
+            # Include additional metadata (e.g., direction, bytes, iats) as necessary
+            "direction": direction[start_idx:end_idx] + [[0]] * (min_packets - len(chunk)),
+            "bytes": pkt_bytes[start_idx:end_idx] + [[0]] * (min_packets - len(chunk)),
+            "iats": iats[start_idx:end_idx] + [[0]] * (min_packets - len(chunk)),
+            "rts": timestamps[start_idx:end_idx] + [0] * (min_packets - len(chunk)),
+            "flow_duration": [flow_duration] * max(len(chunk), min_packets),  # Repeat and pad as needed
+            "protocol": [protocol] * max(len(chunk), min_packets),
+            "attention_mask": attention_mask,
+            "total_bursts":total_bursts
+            })
+
+        # Move the window by the step size
+        start_idx += min_packets  # Packet-based step
+        window_start_time += step_size_ms
+
+    return chunked_input_ids, chunked_metadata

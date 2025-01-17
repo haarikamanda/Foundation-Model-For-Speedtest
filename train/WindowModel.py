@@ -21,6 +21,7 @@ from transformers.models.roberta.modeling_roberta import (
     RobertaOutput,
     RobertaEmbeddings,
 )
+from transformers.models.longformer.modeling_longformer import LongformerSelfAttention
 from transformers.utils import ModelOutput
 import copy
 import time
@@ -74,9 +75,16 @@ class TransformerLayer(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.roformer = config.roformer
+        self.max_burst_length=config.max_burst_length
         self.chunk_size_feed_forward = config.chunk_size_feed_forward
         self.seq_len_dim = 1
-        self.attention = RoFormerAttention(config) if self.roformer else RobertaAttention(config)
+        # self.attention = RoFormerAttention(config) if self.roformer else RobertaAttention(config)
+        self.attention = LongformerSelfAttention(
+           config=config,
+           layer_id=0
+        )
+
+        self.attention_flow=RobertaAttention(config)
         self.is_decoder = config.is_decoder
         self.intermediate = RoFormerIntermediate(config) if self.roformer else RobertaIntermediate(config)
         self.output = RoFormerOutput(config) if self.roformer else RobertaOutput(config)
@@ -88,11 +96,24 @@ class TransformerLayer(nn.Module):
         output_attentions=False,
         seqNo = None
     ):
-        if not self.roformer:
+        # pdb.set_trace()
+        # print(hidden_states.size())
+        
+        # print(is_index_masked.shape)
+        if(attention_mask.shape[3]==1):
+             self_attention_outputs = self.attention_flow(
+                hidden_states,
+                attention_mask,
+                output_attentions=output_attentions,
+            )
+        elif not self.roformer:
+            attention_mask=attention_mask.view(1,attention_mask.shape[3])
+            is_index_masked = attention_mask < 0
             self_attention_outputs = self.attention(
                 hidden_states,
                 attention_mask,
                 output_attentions=output_attentions,
+                is_index_masked=is_index_masked
             )
         else:
             self_attention_outputs = self.attention(
@@ -102,7 +123,7 @@ class TransformerLayer(nn.Module):
                 output_attentions=output_attentions,
             )
         attention_output = self_attention_outputs[0]
-
+        # print("finished attention")
         outputs = self_attention_outputs[1:]
 
         intermediate_output = self.intermediate(attention_output)
@@ -279,7 +300,7 @@ class NetFoundRobertaEmbeddings(RobertaEmbeddings, NetFoundEmbeddingsWithMeta):
         embeddings = self.word_embeddings(input_ids)
         if self.position_embedding_type == "absolute":
             position_embeddings = self.position_embeddings(position_ids)
-            if embeddings.shape[1]!=950:
+            if embeddings.shape[1]!=9500:
                 pdb.set_trace()
             embeddings += position_embeddings
         # embeddings = self.addMetaEmbeddings(embeddings, direction, iats, bytes, pkt_count, protocol)
@@ -352,10 +373,11 @@ class NetFoundLayer(nn.Module):
             num_bursts=num_bursts,
             max_burst_length=self.max_burst_length,
         )
+        # print("doing burst encoder")
         burst_outputs = self.burst_encoder(
             burst_inputs, burst_masks, output_attentions=output_attentions, seqNo = burstSeqNo
         )
-
+        # print("I'm here")
         # flatten bursts back to tokens
         outputs = transform_bursts2tokens(
             burst_outputs[0],
@@ -369,7 +391,7 @@ class NetFoundLayer(nn.Module):
         burst_positions = torch.arange(1, num_bursts + 1).repeat(outputs.size(0), 1)\
                               .to(outputs.device) * (burst_attention_mask.reshape(-1, num_bursts) >= -1).int().to(outputs.device)
         outputs[:, :: self.max_burst_length] += self.position_embeddings(burst_positions)
-
+        # print("doing flow encoder !")
         flow_outputs = self.flow_encoder(
             burst_global_tokens,
             burst_attention_mask,
@@ -685,6 +707,53 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         seq_len = input_ids.size(1)
         num_chunks = (seq_len + self.chunk_size - 1) // self.chunk_size
         all_representations=[]
+        # Loop through each data point in the batch
+        # pdb.set_trace()
+        for i in range(batch_size):
+            # Extract the entire sequence for the current data point
+            full_input_ids = input_ids[i, :seq_len].unsqueeze(0)
+            full_attention_mask = attention_mask[i, :seq_len].unsqueeze(0)
+
+            # Handle padding if necessary
+            padding_length = self.chunk_size - full_input_ids.shape[1]
+            if padding_length > 0:
+                # Pad full_input_ids with `padding_idx` (commonly 0)
+                full_input_ids = nn.functional.pad(full_input_ids, (0, padding_length), value=0)
+
+                # Pad full_attention_mask with 0 (no attention to padding tokens)
+                full_attention_mask = nn.functional.pad(full_attention_mask, (0, padding_length), value=0)
+
+            # Pass the entire sequence through the transformer
+            outputs = self.base_transformer(
+                full_input_ids,
+                attention_mask=full_attention_mask,
+                position_ids=position_ids,
+                output_attentions=output_attentions,
+                output_hidden_states=output_hidden_states,
+                return_dict=return_dict,
+            )
+
+            # Extract the last hidden state
+            combined_representation = outputs[0]  # Last hidden state
+
+            # Append the representation to the list
+            all_representations.append(combined_representation)
+
+            # Clear variables and cache to save memory
+            del full_input_ids, full_attention_mask, outputs, combined_representation
+            torch.cuda.empty_cache()
+
+        # Stack all representations into a single tensor
+        final_representation = torch.stack(all_representations, dim=0)
+
+        # Clear the all_representations list to save memory
+        del all_representations
+
+        # Adjust the final representation to match the shape of the labels
+        final_representation = final_representation[:, :, :labels.shape[1], :]
+        torch.cuda.empty_cache()
+
+        ''' WORKING CODE
         for i in range(batch_size):
             data_point_representations = []
 
@@ -736,6 +805,7 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         final_representation = torch.stack(all_representations, dim=0)
         del all_representations
         torch.cuda.empty_cache()
+        '''
         final_representation = final_representation[:,:, :labels.shape[1], :]
         # final_representation = torch.stack(all_representations, dim=0)
         

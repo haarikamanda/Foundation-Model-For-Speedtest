@@ -12,7 +12,7 @@ class NetfoundConfig(PretrainedConfig):
         vocab_size=65539,
         hidden_size=768,
         max_bursts=12,
-        max_burst_length=950,
+        max_burst_length=9500,
         model_max_length=1296 + 12,
         num_hidden_layers=6, #changed to 6 from 12
         num_attention_heads=6, #changed to 6 from 12
@@ -20,7 +20,7 @@ class NetfoundConfig(PretrainedConfig):
         hidden_act="gelu",
         hidden_dropout_prob=0.1,
         attention_probs_dropout_prob=0.1,
-        max_position_embeddings=950,
+        max_position_embeddings=9500,
         type_vocab_size=2,
         initializer_range=0.02,
         layer_norm_eps=1e-12,
@@ -31,12 +31,14 @@ class NetfoundConfig(PretrainedConfig):
         classifier_dropout=None,
         metaFeatures=4,
         roformer=False,
+        longformer=True,
         no_meta = True,
         flat = False,
         no_mlm=False,
         no_swapped_bursts = True,
         rep_output_path = None,
         subflow_bursts = 3,
+        attention_window=[950],
         **kwargs
     ):
         super().__init__(pad_token_id=pad_token_id, **kwargs)
@@ -74,4 +76,5 @@ class NetfoundConfig(PretrainedConfig):
         self.no_swapped_bursts = no_swapped_bursts
         self.rep_output_path = rep_output_path
         self.subflow_bursts = subflow_bursts
+        self.attention_window = attention_window
 

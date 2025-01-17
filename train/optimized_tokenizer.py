@@ -83,7 +83,7 @@ class NetFoundTokenizer(PreTrainedTokenizer):
         return [[[value] * burst_sizes[idx][i] for i, value in enumerate(flow)] for idx, flow in enumerate(flows)]
 
     def tokenize(self, text, **kwargs):
-        # pdb.set_trace()
+        pdb.set_trace()
         dataset: LazyBatch = text
         direction = self.tokenize_fields([[1 if direction else -1 for direction in flow] for flow in dataset["directions"]])
         pkt_bytes = self.tokenize_fields(dataset["bytes"])
@@ -93,7 +93,7 @@ class NetFoundTokenizer(PreTrainedTokenizer):
         )
 
         all_chunked_input_ids, all_chunked_metadata = [], []
-        # pdb.set_trace()
+        pdb.set_trace()
         for i in range(len(input_ids)):
             chunks, metadata = chunk_with_sliding_window(
                 input_ids[i], dataset["rts"][i], attention_mask[i], direction[i], pkt_bytes[i], iats[i],
@@ -101,7 +101,7 @@ class NetFoundTokenizer(PreTrainedTokenizer):
             )
             all_chunked_input_ids.extend(chunks)
             all_chunked_metadata.extend(metadata)
-        # pdb.set_trace()
+        pdb.set_trace()
         batchDict = {
         "burst_tokens": [meta["protocol"] for meta in all_chunked_metadata],
         "input_ids": [pa.array(chunk, type=pa.large_list(pa.int32())) for chunk in all_chunked_input_ids],
@@ -147,7 +147,7 @@ from typing import List, Tuple, Dict
 def chunk_with_sliding_window(
     input_ids: List[List[int]], timestamps: List[int], attention_mask: List[List[int]],
     direction: List[int], pkt_bytes: List[int], iats: List[int], 
-    protocol: int, window_size_ms: int = 100, step_size_ms: int = 10, min_packets: int = 500
+    protocol: int, window_size_ms: int = 100, step_size_ms: int = 10, min_packets: int = 50
 ) -> Tuple[List[List[List[int]]], List[Dict]]:
     # Convert timestamps from nanoseconds to milliseconds
     timestamps_ms = [ts / 1e6 for ts in timestamps]
@@ -157,7 +157,7 @@ def chunk_with_sliding_window(
 
     # Initialize the sliding window
     start_idx, num_packets = 0, len(timestamps_ms)
-
+    pdb.set_trace()
     while start_idx < num_packets:
         # Set the window boundaries
         window_start_time = timestamps_ms[start_idx]
@@ -192,6 +192,7 @@ def chunk_with_sliding_window(
 
             # Append the current chunk and its metadata
             chunked_input_ids.append(chunk)
+            pdb.set_trace()
             chunked_metadata.append({
                 "timestamps": timestamps[start_idx:end_idx][chunk_start:chunk_end] + [0] * pad_len,
                 "direction": direction[start_idx:end_idx][chunk_start:chunk_end] + [0] * pad_len,
@@ -209,5 +210,5 @@ def chunk_with_sliding_window(
         # Update the start index to the point that meets or exceeds the next start time
         while start_idx < num_packets and timestamps_ms[start_idx] < next_start_time:
             start_idx += 1
-
+    pdb.set_trace()
     return chunked_input_ids, chunked_metadata

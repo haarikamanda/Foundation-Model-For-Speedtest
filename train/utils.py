@@ -204,7 +204,8 @@ def load_train_test_datasets(logger, data_args):
     return train_dataset, test_dataset
 
 def load_tokenized_dataset(logger,data_args):
-    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/saved_chunked_dataset_11_29"
+    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/chunked_datasets/saved_chunked_dataset_11_29"
+    # output_dir ="/global/homes/h/haarika/pscratch/test_directories/speedtest_debug/tokens"
     datasets_list = []
     count=0
     for folder_name in os.listdir(output_dir):
@@ -215,7 +216,7 @@ def load_tokenized_dataset(logger,data_args):
             #     continue
             # Load the dataset from disk
             dataset = load_from_disk(folder_path)
-            # dataset = dataset.select(range(400000))
+            dataset = dataset.select(range(20000))
             datasets_list.append(dataset)
             break
      

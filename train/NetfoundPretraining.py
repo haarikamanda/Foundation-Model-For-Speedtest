@@ -187,7 +187,7 @@ def main():
     # pdb.set_trace()
     train_dataset, test_dataset = load_tokenized_dataset(logger, data_args)
     comb_dataset=concatenate_datasets([train_dataset,test_dataset])
-    pdb.set_trace()
+    # pdb.set_trace()
 
     logger.warning("Tokenizing datasets")
     config = NetfoundConfig(
@@ -233,13 +233,13 @@ def main():
     # # train_dataset=train_dataset.select(range(50))
     # # train_dataset_new = train_dataset.map(tokenizer, batched=True,load_from_cache_file=True, num_proc=112,cache_file_name=None)
     '''
-    batch_size = 55
+    batch_size = 10000
     
     # Get the total number of examples in the dataset
     total_examples = len(comb_dataset)
     # Loop through the dataset in increments of batch_size
-    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/saved_chunked_dataset_11_29"
-
+    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/chunked_datasets/saved_chunked_dataset_01_08"
+    pdb.set_trace()
     for start_idx in range(0, total_examples, batch_size):
         # Select a batch of examples
         end_idx = min(start_idx + batch_size, total_examples)
@@ -255,9 +255,9 @@ def main():
         # Check if the folder already exists; if not, save the batch
         if not os.path.exists(batch_path):
             batch = comb_dataset.select(range(start_idx, end_idx))
-            # batch=batch.select(range(5))
+            batch=batch.select(range(5))
             # processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=1, cache_file_name=None)
-            processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=112, cache_file_name=None)
+            processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=1, cache_file_name=None)
             processed_batch = processed_batch.remove_columns(['directions'])
             processed_batch = processed_batch.rename_column("directions_tok","directions")
             # pdb.set_trace()
