@@ -1,0 +1,191 @@
+[2025-01-24 15:19:05,960] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:05,996] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:05,996] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,000] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,042] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,049] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,049] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,244] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,257] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,260] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,269] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,291] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,293] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,294] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,301] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:06,339] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-24 15:19:24,107] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,107] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,107] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,107] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,310] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,310] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,310] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-01-24 15:19:24,310] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,310] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,491] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,492] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,492] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:24,702] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+[2025-01-24 15:19:27,874] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:27,874] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:27,874] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-24 15:19:27,874] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+ninja: no work to do.
+Time to load fused_adam op: 2.780627965927124 seconds
+Time to load fused_adam op: 2.7589712142944336 seconds
+Time to load fused_adam op: 2.7498083114624023 seconds
+Time to load fused_adam op: 2.750221014022827 seconds
+Time to load fused_adam op: 2.7497506141662598 seconds
+Time to load fused_adam op: 2.749765396118164 seconds
+Time to load fused_adam op: 2.7498066425323486 seconds
+Time to load fused_adam op: 2.752164840698242 secondsTime to load fused_adam op: 2.7521674633026123 secondsTime to load fused_adam op: 2.7521607875823975 seconds
+
+
+Time to load fused_adam op: 2.752185106277466 seconds
+Time to load fused_adam op: 2.812776565551758 seconds
+Time to load fused_adam op: 2.8146615028381348 seconds
+Time to load fused_adam op: 2.8256142139434814 seconds
+Time to load fused_adam op: 2.815034866333008 seconds
+Time to load fused_adam op: 2.846412420272827 seconds
+[2025-01-24 15:19:38,601] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,616] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,643] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,661] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,677] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,727] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,727] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,731] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,743] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,745] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,772] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,776] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,794] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,802] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:38,844] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-24 15:19:39,166] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+{'loss': 79.0571, 'grad_norm': 11.362565994262695, 'learning_rate': 2e-05, 'epoch': 0.93}
+{'loss': 78.372, 'grad_norm': 9.019235610961914, 'learning_rate': 2e-05, 'epoch': 0.95}
+{'loss': 77.9534, 'grad_norm': 18.283370971679688, 'learning_rate': 2e-05, 'epoch': 0.97}
+{'loss': 79.9085, 'grad_norm': 28.587947845458984, 'learning_rate': 2e-05, 'epoch': 1.0}
+{'eval_loss': nan, 'eval_macro_mlm_f1': 0.03798960032887706, 'eval_macro_mlm_prec': 0.13863643090390612, 'eval_macro_mlm_recall': 0.03039270542059761, 'eval_weighted_mlm_f1': 0.29526900110473536, 'eval_weighted_mlm_prec': 0.38785485821818183, 'eval_weighted_mlm_recall': 0.31683691258768854, 'eval_mlm_acc': 0.31683691258768854, 'eval_runtime': 1514.537, 'eval_samples_per_second': 52.821, 'eval_steps_per_second': 3.301, 'epoch': 1.0}
+{'loss': 79.04, 'grad_norm': 49.69340515136719, 'learning_rate': 2e-05, 'epoch': 1.02}
+{'loss': 77.3409, 'grad_norm': 104.56790161132812, 'learning_rate': 2e-05, 'epoch': 1.05}
+{'loss': 77.6041, 'grad_norm': 16.119277954101562, 'learning_rate': 2e-05, 'epoch': 1.07}
+{'loss': 76.8553, 'grad_norm': 61.18796157836914, 'learning_rate': 2e-05, 'epoch': 1.1}
+{'loss': 75.826, 'grad_norm': 26.247207641601562, 'learning_rate': 2e-05, 'epoch': 1.12}
+{'loss': 75.7951, 'grad_norm': 25.877460479736328, 'learning_rate': 2e-05, 'epoch': 1.15}
+{'loss': 76.0398, 'grad_norm': 19.7023983001709, 'learning_rate': 2e-05, 'epoch': 1.18}
+{'loss': 75.8948, 'grad_norm': 9.95783519744873, 'learning_rate': 2e-05, 'epoch': 1.2}
+{'loss': 76.8492, 'grad_norm': 8.219024658203125, 'learning_rate': 2e-05, 'epoch': 1.23}
+{'loss': 76.5235, 'grad_norm': 161.35745239257812, 'learning_rate': 2e-05, 'epoch': 1.25}
+{'loss': 78.5196, 'grad_norm': 56.48014831542969, 'learning_rate': 2e-05, 'epoch': 1.27}
+{'loss': 77.6454, 'grad_norm': 16.932941436767578, 'learning_rate': 2e-05, 'epoch': 1.3}
+{'loss': 75.554, 'grad_norm': 36.29428482055664, 'learning_rate': 2e-05, 'epoch': 1.32}
+{'loss': 75.1308, 'grad_norm': 25.68257713317871, 'learning_rate': 2e-05, 'epoch': 1.35}
+{'loss': 75.5129, 'grad_norm': 44.82841873168945, 'learning_rate': 2e-05, 'epoch': 1.38}
+{'loss': 74.4615, 'grad_norm': 21.488834381103516, 'learning_rate': 2e-05, 'epoch': 1.4}
+{'loss': 75.0515, 'grad_norm': 33.336647033691406, 'learning_rate': 2e-05, 'epoch': 1.43}
+{'loss': 74.2933, 'grad_norm': 22.354589462280273, 'learning_rate': 2e-05, 'epoch': 1.45}
+{'loss': 75.1268, 'grad_norm': 70.13529968261719, 'learning_rate': 2e-05, 'epoch': 1.48}
+{'loss': 76.2405, 'grad_norm': 24.699514389038086, 'learning_rate': 2e-05, 'epoch': 1.5}
+{'loss': 74.372, 'grad_norm': 72.3541488647461, 'learning_rate': 2e-05, 'epoch': 1.52}
+{'loss': 74.3546, 'grad_norm': 97.3380355834961, 'learning_rate': 2e-05, 'epoch': 1.55}
+{'loss': 73.7975, 'grad_norm': 114.54596710205078, 'learning_rate': 2e-05, 'epoch': 1.57}
+{'loss': 74.2011, 'grad_norm': 27.43011474609375, 'learning_rate': 2e-05, 'epoch': 1.6}
+{'loss': 74.7221, 'grad_norm': 28.230836868286133, 'learning_rate': 2e-05, 'epoch': 1.62}
+{'loss': 72.5502, 'grad_norm': 121.40228271484375, 'learning_rate': 2e-05, 'epoch': 1.65}
+{'loss': 74.7505, 'grad_norm': 103.5953140258789, 'learning_rate': 2e-05, 'epoch': 1.68}
+{'loss': 73.9905, 'grad_norm': 44.8621940612793, 'learning_rate': 2e-05, 'epoch': 1.7}
+{'loss': 73.7829, 'grad_norm': 34.197940826416016, 'learning_rate': 2e-05, 'epoch': 1.73}
+{'loss': 73.5634, 'grad_norm': 21.40312385559082, 'learning_rate': 2e-05, 'epoch': 1.75}
+{'loss': 72.7342, 'grad_norm': 33.91864013671875, 'learning_rate': 2e-05, 'epoch': 1.77}
+{'loss': 73.527, 'grad_norm': 75.27017974853516, 'learning_rate': 2e-05, 'epoch': 1.8}
+{'loss': 74.1265, 'grad_norm': 60.015716552734375, 'learning_rate': 2e-05, 'epoch': 1.82}
+{'loss': 72.422, 'grad_norm': 72.1274185180664, 'learning_rate': 2e-05, 'epoch': 1.85}
+{'loss': 73.4798, 'grad_norm': 58.86832809448242, 'learning_rate': 2e-05, 'epoch': 1.88}
+{'loss': 73.8463, 'grad_norm': 133.8816375732422, 'learning_rate': 2e-05, 'epoch': 1.9}
+{'loss': 72.4753, 'grad_norm': 74.24922180175781, 'learning_rate': 2e-05, 'epoch': 1.93}
+{'loss': 72.2319, 'grad_norm': 55.92815399169922, 'learning_rate': 2e-05, 'epoch': 1.95}
+{'loss': 69.9146, 'grad_norm': 121.61763763427734, 'learning_rate': 2e-05, 'epoch': 1.98}
+{'loss': 70.7773, 'grad_norm': 48.646156311035156, 'learning_rate': 2e-05, 'epoch': 2.0}
+{'eval_loss': nan, 'eval_macro_mlm_f1': 0.06934123814718678, 'eval_macro_mlm_prec': 0.26643894321617373, 'eval_macro_mlm_recall': 0.06051613835360649, 'eval_weighted_mlm_f1': 0.3173688211103397, 'eval_weighted_mlm_prec': 0.37799288857885055, 'eval_weighted_mlm_recall': 0.32998366415363817, 'eval_mlm_acc': 0.32998366415363817, 'eval_runtime': 1651.6795, 'eval_samples_per_second': 48.436, 'eval_steps_per_second': 3.027, 'epoch': 2.0}
+{'loss': 71.9724, 'grad_norm': 44.194095611572266, 'learning_rate': 2e-05, 'epoch': 2.02}
+{'loss': 72.2242, 'grad_norm': 39.23063278198242, 'learning_rate': 2e-05, 'epoch': 2.05}
+{'loss': 71.6245, 'grad_norm': 55.40738296508789, 'learning_rate': 2e-05, 'epoch': 2.08}
+{'loss': 70.4135, 'grad_norm': 61.591346740722656, 'learning_rate': 2e-05, 'epoch': 2.1}
+{'loss': 71.1242, 'grad_norm': 57.20317840576172, 'learning_rate': 2e-05, 'epoch': 2.12}
+{'loss': 70.3738, 'grad_norm': 41.88889694213867, 'learning_rate': 2e-05, 'epoch': 2.15}
+{'loss': 71.2043, 'grad_norm': 27.10273551940918, 'learning_rate': 2e-05, 'epoch': 2.17}
+{'loss': 70.5668, 'grad_norm': 61.184104919433594, 'learning_rate': 2e-05, 'epoch': 2.2}
+{'loss': 72.0075, 'grad_norm': 73.4151382446289, 'learning_rate': 2e-05, 'epoch': 2.23}
+{'loss': 70.6707, 'grad_norm': 46.064517974853516, 'learning_rate': 2e-05, 'epoch': 2.25}
+{'loss': 70.73, 'grad_norm': 38.452369689941406, 'learning_rate': 2e-05, 'epoch': 2.27}
+{'loss': 73.9966, 'grad_norm': 175.17564392089844, 'learning_rate': 2e-05, 'epoch': 2.3}
+{'loss': 70.7036, 'grad_norm': 42.973140716552734, 'learning_rate': 2e-05, 'epoch': 2.33}
+{'loss': 71.0171, 'grad_norm': 57.349544525146484, 'learning_rate': 2e-05, 'epoch': 2.35}
+{'loss': 70.5251, 'grad_norm': 53.933353424072266, 'learning_rate': 2e-05, 'epoch': 2.38}
+{'loss': 71.0095, 'grad_norm': 194.6035919189453, 'learning_rate': 2e-05, 'epoch': 2.4}
+{'loss': 70.8648, 'grad_norm': 128.51101684570312, 'learning_rate': 2e-05, 'epoch': 2.42}
+{'loss': 69.4729, 'grad_norm': 118.51869201660156, 'learning_rate': 2e-05, 'epoch': 2.45}
+{'loss': 69.0676, 'grad_norm': 65.15581512451172, 'learning_rate': 2e-05, 'epoch': 2.48}
+{'loss': 68.5007, 'grad_norm': 104.14543151855469, 'learning_rate': 2e-05, 'epoch': 2.5}
+{'loss': 69.6672, 'grad_norm': 72.08407592773438, 'learning_rate': 2e-05, 'epoch': 2.52}
+{'loss': 68.9066, 'grad_norm': 94.4540786743164, 'learning_rate': 2e-05, 'epoch': 2.55}
+{'loss': 68.5076, 'grad_norm': 88.1404037475586, 'learning_rate': 2e-05, 'epoch': 2.58}
+{'loss': 69.9026, 'grad_norm': 108.78353118896484, 'learning_rate': 2e-05, 'epoch': 2.6}
+{'loss': 70.4924, 'grad_norm': 109.59935760498047, 'learning_rate': 2e-05, 'epoch': 2.62}
+{'loss': 68.1625, 'grad_norm': 60.63544845581055, 'learning_rate': 2e-05, 'epoch': 2.65}
+{'loss': 68.7317, 'grad_norm': 114.91942596435547, 'learning_rate': 2e-05, 'epoch': 2.67}
+{'loss': 68.58, 'grad_norm': 67.978515625, 'learning_rate': 2e-05, 'epoch': 2.7}
+{'loss': 70.3972, 'grad_norm': 94.83496856689453, 'learning_rate': 2e-05, 'epoch': 2.73}
+{'loss': 68.6411, 'grad_norm': 87.59295654296875, 'learning_rate': 2e-05, 'epoch': 2.75}
+{'loss': 68.6914, 'grad_norm': 152.95484924316406, 'learning_rate': 2e-05, 'epoch': 2.77}
+{'loss': 71.2599, 'grad_norm': 66.53822326660156, 'learning_rate': 2e-05, 'epoch': 2.8}
+{'loss': 68.1052, 'grad_norm': 65.74767303466797, 'learning_rate': 2e-05, 'epoch': 2.83}
+{'loss': 68.7003, 'grad_norm': 118.9822998046875, 'learning_rate': 2e-05, 'epoch': 2.85}
+{'loss': 68.85, 'grad_norm': 60.96868133544922, 'learning_rate': 2e-05, 'epoch': 2.88}
+{'loss': 69.7526, 'grad_norm': 356.2466125488281, 'learning_rate': 2e-05, 'epoch': 2.9}
+{'loss': 67.6645, 'grad_norm': 58.697444915771484, 'learning_rate': 2e-05, 'epoch': 2.92}
+{'loss': 69.2741, 'grad_norm': 148.9427032470703, 'learning_rate': 2e-05, 'epoch': 2.95}
+{'loss': 71.1162, 'grad_norm': 71.95130157470703, 'learning_rate': 2e-05, 'epoch': 2.98}
+{'loss': 67.267, 'grad_norm': 84.02935791015625, 'learning_rate': 2e-05, 'epoch': 3.0}
+{'eval_loss': nan, 'eval_macro_mlm_f1': 0.07611230158997317, 'eval_macro_mlm_prec': 0.2538751565855484, 'eval_macro_mlm_recall': 0.07071915103152505, 'eval_weighted_mlm_f1': 0.3214946933424032, 'eval_weighted_mlm_prec': 0.3794241095918576, 'eval_weighted_mlm_recall': 0.3301427694333521, 'eval_mlm_acc': 0.3301427694333521, 'eval_runtime': 1643.5617, 'eval_samples_per_second': 48.675, 'eval_steps_per_second': 3.042, 'epoch': 3.0}
+{'train_runtime': 40172.3493, 'train_samples_per_second': 23.897, 'train_steps_per_second': 1.494, 'train_loss': 50.8912978515625, 'epoch': 3.0}
+***** train metrics *****
+  epoch                    =           3.0
+  total_flos               = 11401966080GF
+  train_loss               =       50.8913
+  train_runtime            =   11:09:32.34
+  train_samples_per_second =        23.897
+  train_steps_per_second   =         1.494
+***** eval metrics *****
+  epoch                    =        3.0
+  eval_loss                =        nan
+  eval_macro_mlm_f1        =     0.0762
+  eval_macro_mlm_prec      =     0.2536
+  eval_macro_mlm_recall    =     0.0708
+  eval_mlm_acc             =     0.3296
+  eval_runtime             = 0:27:21.35
+  eval_samples_per_second  =      48.74
+  eval_steps_per_second    =      3.046
+  eval_weighted_mlm_f1     =     0.3209
+  eval_weighted_mlm_prec   =      0.379
+  eval_weighted_mlm_recall =     0.3296
+  perplexity               =        nan

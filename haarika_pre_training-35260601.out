@@ -1,0 +1,82 @@
+[2025-01-26 12:28:33,473] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,507] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,533] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,539] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,582] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,596] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,601] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,616] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,619] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,638] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,639] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:33,665] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:34,362] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:34,369] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:34,370] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:34,370] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 12:28:53,247] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,247] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,247] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,247] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,257] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,257] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,257] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,257] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,257] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-01-26 12:28:53,529] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,532] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,532] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:53,532] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+[2025-01-26 12:28:58,335] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:58,335] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:58,440] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 12:28:58,440] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+ninja: no work to do.
+Time to load fused_adam op: 3.4119434356689453 seconds
+Time to load fused_adam op: 3.4393815994262695 seconds
+Time to load fused_adam op: 3.412172317504883 seconds
+Time to load fused_adam op: 3.461841583251953 seconds
+Time to load fused_adam op: 3.4608635902404785 seconds
+Time to load fused_adam op: 3.4549996852874756 seconds
+Time to load fused_adam op: 3.4551753997802734 seconds
+Time to load fused_adam op: 3.4553725719451904 seconds
+Time to load fused_adam op: 3.4529008865356445 seconds
+Time to load fused_adam op: 3.4529409408569336 seconds
+Time to load fused_adam op: 3.4561989307403564 seconds
+Time to load fused_adam op: 3.4535486698150635 seconds
+Time to load fused_adam op: 3.453589677810669 seconds
+Time to load fused_adam op: 3.473618984222412 seconds
+Time to load fused_adam op: 3.5150704383850098 seconds
+Time to load fused_adam op: 3.612657070159912 seconds
+[2025-01-26 12:29:09,585] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,585] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,610] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,612] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,616] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,645] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,656] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,675] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,693] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,693] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,698] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,722] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,747] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,749] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:09,797] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 12:29:10,098] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started

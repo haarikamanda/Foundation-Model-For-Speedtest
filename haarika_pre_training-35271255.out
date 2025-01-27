@@ -1,0 +1,112 @@
+[2025-01-26 22:28:24,179] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,193] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,198] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,200] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,205] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,225] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,239] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,241] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,369] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,379] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,379] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,383] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,391] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,404] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,419] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:24,432] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-01-26 22:28:36,049] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:36,049] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:36,049] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:36,049] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+[2025-01-26 22:28:40,742] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:40,742] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:40,742] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:40,742] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-01-26 22:28:40,742] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,398] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,398] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,399] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,399] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,965] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,965] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,965] [INFO] [comm.py:652:init_distributed] cdb=None
+[2025-01-26 22:28:41,965] [INFO] [comm.py:652:init_distributed] cdb=None
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+Initilizing Deepspeed NEW !
+ninja: no work to do.
+Time to load fused_adam op: 2.7665109634399414 seconds
+Time to load fused_adam op: 2.7626113891601562 seconds
+Time to load fused_adam op: 2.7626893520355225 seconds
+Time to load fused_adam op: 2.762773275375366 seconds
+Time to load fused_adam op: 2.7635135650634766 seconds
+Time to load fused_adam op: 2.7659964561462402 secondsTime to load fused_adam op: 2.7659971714019775 seconds
+
+Time to load fused_adam op: 2.7660071849823 seconds
+Time to load fused_adam op: 2.7647933959960938 secondsTime to load fused_adam op: 2.7647933959960938 seconds
+
+Time to load fused_adam op: 2.7662534713745117 seconds
+Time to load fused_adam op: 2.764827013015747 seconds
+Time to load fused_adam op: 2.7648441791534424 seconds
+Time to load fused_adam op: 2.8260436058044434 seconds
+Time to load fused_adam op: 2.8270275592803955 seconds
+Time to load fused_adam op: 2.826241970062256 seconds
+[2025-01-26 22:28:51,739] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,745] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,762] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,771] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,771] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,782] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,793] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,798] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,808] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,820] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,822] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,834] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,843] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,853] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:51,863] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-01-26 22:28:52,106] [WARNING] [lr_schedules.py:683:get_lr] Attempting to get learning rate from scheduler before it has started
+{'loss': 69.6868, 'grad_norm': 186.06202697753906, 'learning_rate': 2e-05, 'epoch': 2.42}
+{'loss': 68.2573, 'grad_norm': 109.2048568725586, 'learning_rate': 2e-05, 'epoch': 2.44}
+{'loss': 68.3772, 'grad_norm': 70.70378112792969, 'learning_rate': 2e-05, 'epoch': 2.46}
+{'loss': 69.6035, 'grad_norm': 51.9304313659668, 'learning_rate': 2e-05, 'epoch': 2.48}
+{'loss': 68.4787, 'grad_norm': 510.45294189453125, 'learning_rate': 2e-05, 'epoch': 2.5}
+{'loss': 67.98, 'grad_norm': 328.3595886230469, 'learning_rate': 2e-05, 'epoch': 2.52}
+{'loss': 68.7071, 'grad_norm': 60.10618591308594, 'learning_rate': 2e-05, 'epoch': 2.54}
+{'loss': 68.807, 'grad_norm': 123.48701477050781, 'learning_rate': 2e-05, 'epoch': 2.56}
+{'loss': 66.5362, 'grad_norm': 115.95201873779297, 'learning_rate': 2e-05, 'epoch': 2.58}
+{'loss': 68.2686, 'grad_norm': 797.8547973632812, 'learning_rate': 2e-05, 'epoch': 2.6}
+{'loss': 67.0784, 'grad_norm': 69.60490417480469, 'learning_rate': 2e-05, 'epoch': 2.62}
+{'loss': 69.0582, 'grad_norm': 170.93875122070312, 'learning_rate': 2e-05, 'epoch': 2.64}
+{'loss': 66.9422, 'grad_norm': 122.47964477539062, 'learning_rate': 2e-05, 'epoch': 2.66}
+{'loss': 68.823, 'grad_norm': 137.1233367919922, 'learning_rate': 2e-05, 'epoch': 2.68}
+{'loss': 66.5982, 'grad_norm': 115.65739440917969, 'learning_rate': 2e-05, 'epoch': 2.7}
+{'loss': 67.0928, 'grad_norm': 64.32511138916016, 'learning_rate': 2e-05, 'epoch': 2.72}
+{'loss': 69.3069, 'grad_norm': 60.793373107910156, 'learning_rate': 2e-05, 'epoch': 2.74}
+{'loss': 65.3775, 'grad_norm': 68.81282043457031, 'learning_rate': 2e-05, 'epoch': 2.76}
+{'loss': 67.9187, 'grad_norm': 179.56455993652344, 'learning_rate': 2e-05, 'epoch': 2.78}
+{'loss': 66.7107, 'grad_norm': 44.345829010009766, 'learning_rate': 2e-05, 'epoch': 2.8}
+{'loss': 68.2262, 'grad_norm': 102.59612274169922, 'learning_rate': 2e-05, 'epoch': 2.82}
+{'loss': 66.7255, 'grad_norm': 62.44733810424805, 'learning_rate': 2e-05, 'epoch': 2.84}
+{'loss': 67.5679, 'grad_norm': 89.79668426513672, 'learning_rate': 2e-05, 'epoch': 2.86}
+{'loss': 65.5714, 'grad_norm': 34.4080810546875, 'learning_rate': 2e-05, 'epoch': 2.88}
+{'loss': 66.8285, 'grad_norm': 179.93992614746094, 'learning_rate': 2e-05, 'epoch': 2.9}
+{'loss': 66.1147, 'grad_norm': 99.44764709472656, 'learning_rate': 2e-05, 'epoch': 2.92}
+{'loss': 71.1592, 'grad_norm': 246.47938537597656, 'learning_rate': 2e-05, 'epoch': 2.94}
+{'loss': 71.903, 'grad_norm': 113.76669311523438, 'learning_rate': 2e-05, 'epoch': 2.96}
+{'loss': 66.8162, 'grad_norm': 174.4038848876953, 'learning_rate': 2e-05, 'epoch': 2.98}
+{'loss': 67.1439, 'grad_norm': 76.26079559326172, 'learning_rate': 2e-05, 'epoch': 3.0}
