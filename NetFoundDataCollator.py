@@ -89,7 +89,7 @@ class DataCollatorWithMeta(DataCollatorForLanguageModeling):
             #     batch[key] = torch.Tensor(batch[key]).to(torch.long)
         # pdb.set_trace()
         if self.mlm:
-            burstsInEachFlow_n=[x*19 for x in burstsInEachFlow]
+            burstsInEachFlow_n=[x*9 for x in burstsInEachFlow]
             batch["input_ids"], batch["labels"], batch["swappedLabels"], batch[
                 "burstMetasToBeMasked"] = self.torch_mask_tokens(
                 batch["input_ids"], burstsInEachFlow, self.tokenizer.max_burst_length, self.swap_rate,
@@ -102,7 +102,7 @@ class DataCollatorWithMeta(DataCollatorForLanguageModeling):
             batch["labels"] = labels
        
         del batch['protocol']
-        batch['total_bursts']=batch['total_bursts']*19
+        batch['total_bursts']=batch['total_bursts']*9
         # pdb.set_trace()
         return BatchEncoding(batch)
 
@@ -135,11 +135,11 @@ class DataCollatorWithMeta(DataCollatorForLanguageModeling):
         # pdb.set_trace()
 
         ###NEW PART 
-        fields_to_exclude=[0,1,2,4,12,13,14,15,16,17,18]
-        exclude_mask = torch.zeros_like(probability_matrix, dtype=torch.bool)
-        for field in fields_to_exclude:
-            exclude_mask[:, field::19] = True  # Assuming each 19 tokens correspond to a packet
-        probability_matrix.masked_fill_(exclude_mask, value=0.0)
+        # fields_to_exclude=[0,1,2,4,12,13,14,15,16,17,18]
+        # exclude_mask = torch.zeros_like(probability_matrix, dtype=torch.bool)
+        # for field in fields_to_exclude:
+        #     exclude_mask[:, field::19] = True  # Assuming each 19 tokens correspond to a packet
+        # probability_matrix.masked_fill_(exclude_mask, value=0.0)
         ###NEW PART 
         # pdb.set_trace()
         new_ip_ids, swappedIds, swappedLabels = self.swap_bursts_adjust_prob_matrix(input_ids, burstsInEachFlow,

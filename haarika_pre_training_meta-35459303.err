@@ -1,0 +1,265 @@
+
+Lmod is automatically replacing "gcc-native/12.3" with "gcc/12.2.0".
+
+
+Inactive Modules:
+  1) cray-libsci/23.12.5     2) cray-mpich/8.1.28
+
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[rank8]: Traceback (most recent call last):
+[rank8]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank8]:     main()
+[rank8]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank8]:     return f(*args, **kwargs)
+[rank8]:            ^^^^^^^^^^^^^^^^^^
+[rank8]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank8]:     verify_checkpoint(logger, training_args)
+[rank8]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank8]:     raise ValueError(
+[rank8]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank11]: Traceback (most recent call last):
+[rank11]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank11]:     main()
+[rank11]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank11]:     return f(*args, **kwargs)
+[rank11]:            ^^^^^^^^^^^^^^^^^^
+[rank11]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank11]:     verify_checkpoint(logger, training_args)
+[rank11]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank11]:     raise ValueError(
+[rank11]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank9]: Traceback (most recent call last):
+[rank9]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank9]:     main()
+[rank9]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank9]:     return f(*args, **kwargs)
+[rank9]:            ^^^^^^^^^^^^^^^^^^
+[rank9]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank9]:     verify_checkpoint(logger, training_args)
+[rank9]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank9]:     raise ValueError(
+[rank9]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank10]: Traceback (most recent call last):
+[rank10]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank10]:     main()
+[rank10]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank10]:     return f(*args, **kwargs)
+[rank10]:            ^^^^^^^^^^^^^^^^^^
+[rank10]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank10]:     verify_checkpoint(logger, training_args)
+[rank10]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank10]:     raise ValueError(
+[rank10]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+[rank12]: Traceback (most recent call last):
+[rank12]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank12]:     main()
+[rank12]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank12]:     return f(*args, **kwargs)
+[rank12]:            ^^^^^^^^^^^^^^^^^^
+[rank12]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank12]:     verify_checkpoint(logger, training_args)
+[rank12]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank12]:     raise ValueError(
+[rank12]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank15]: Traceback (most recent call last):
+[rank15]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank15]:     main()
+[rank15]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank15]:     return f(*args, **kwargs)
+[rank15]:            ^^^^^^^^^^^^^^^^^^
+[rank15]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank15]:     verify_checkpoint(logger, training_args)
+[rank15]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank15]:     raise ValueError(
+[rank15]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank14]: Traceback (most recent call last):
+[rank14]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank14]:     main()
+[rank14]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank14]:     return f(*args, **kwargs)
+[rank14]:            ^^^^^^^^^^^^^^^^^^
+[rank14]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank14]:     verify_checkpoint(logger, training_args)
+[rank14]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank14]:     raise ValueError(
+[rank14]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank13]: Traceback (most recent call last):
+[rank13]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank13]:     main()
+[rank13]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank13]:     return f(*args, **kwargs)
+[rank13]:            ^^^^^^^^^^^^^^^^^^
+[rank13]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank13]:     verify_checkpoint(logger, training_args)
+[rank13]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank13]:     raise ValueError(
+[rank13]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank0]:     main()
+[rank0]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank0]:     return f(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank0]:     verify_checkpoint(logger, training_args)
+[rank0]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank2]:     main()
+[rank2]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank2]:     return f(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank2]:     verify_checkpoint(logger, training_args)
+[rank2]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank2]:     raise ValueError(
+[rank2]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank1]:     main()
+[rank1]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank1]:     return f(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank1]:     verify_checkpoint(logger, training_args)
+[rank1]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank1]:     raise ValueError(
+[rank1]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank3]:     main()
+[rank3]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank3]:     return f(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank3]:     verify_checkpoint(logger, training_args)
+[rank3]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank3]:     raise ValueError(
+[rank3]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/transformers/training_args.py:1545: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+Tokenizing datasets
+Initializing deepspeed-optimized model
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank4]:     main()
+[rank4]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank4]:     return f(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank4]:     verify_checkpoint(logger, training_args)
+[rank4]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank4]:     raise ValueError(
+[rank4]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank6]:     main()
+[rank6]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank6]:     return f(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank6]:     verify_checkpoint(logger, training_args)
+[rank6]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank6]:     raise ValueError(
+[rank6]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank7]:     main()
+[rank7]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank7]:     return f(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank7]:     verify_checkpoint(logger, training_args)
+[rank7]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank7]:     raise ValueError(
+[rank7]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 365, in <module>
+[rank5]:     main()
+[rank5]:   File "/global/common/software/m4629/environments/netfound/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+[rank5]:     return f(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/global/homes/h/haarika/pscratch/network-data-representation/src/train/NetfoundPretraining.py", line 310, in main
+[rank5]:     verify_checkpoint(logger, training_args)
+[rank5]:   File "/pscratch/sd/h/haarika/network-data-representation/src/train/utils.py", line 155, in verify_checkpoint
+[rank5]:     raise ValueError(
+[rank5]: ValueError: Output directory (/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_02_04_2025) already exists and is not empty. Use --overwrite_output_dir to overwrite it.
+slurmstepd: error: *** STEP 35459303.0 ON nid001625 CANCELLED AT 2025-02-05T09:29:43 ***
+slurmstepd: error: *** JOB 35459303 ON nid001625 CANCELLED AT 2025-02-05T09:29:43 ***

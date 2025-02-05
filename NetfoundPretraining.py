@@ -186,6 +186,7 @@ def main():
 
     # pdb.set_trace()
     train_dataset, test_dataset = load_tokenized_dataset(logger, data_args)
+    # pdb.set_trace()
     comb_dataset=concatenate_datasets([train_dataset,test_dataset])
     # pdb.set_trace()
 
@@ -226,20 +227,20 @@ def main():
     # logging_dir='./logs',
     # logging_steps=10,
     # )
-    '''
+    
     comb_dataset = comb_dataset.remove_columns(['labels'])
     comb_dataset = comb_dataset.remove_columns(['flow_duration'])
-    '''
+    
     # # train_dataset=train_dataset.select(range(50))
     # # train_dataset_new = train_dataset.map(tokenizer, batched=True,load_from_cache_file=True, num_proc=112,cache_file_name=None)
-    '''
-    batch_size = 10000
+    
+    batch_size = 1000
     
     # Get the total number of examples in the dataset
     total_examples = len(comb_dataset)
     # Loop through the dataset in increments of batch_size
-    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/chunked_datasets/saved_chunked_dataset_01_08"
-    pdb.set_trace()
+    output_dir = "/global/homes/h/haarika/pscratch/network-data-representation/chunked_datasets/saved_chunk_test"
+    # pdb.set_trace()
     for start_idx in range(0, total_examples, batch_size):
         # Select a batch of examples
         end_idx = min(start_idx + batch_size, total_examples)
@@ -255,9 +256,9 @@ def main():
         # Check if the folder already exists; if not, save the batch
         if not os.path.exists(batch_path):
             batch = comb_dataset.select(range(start_idx, end_idx))
-            batch=batch.select(range(5))
+            # batch=batch.select(range(10))
             # processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=1, cache_file_name=None)
-            processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=1, cache_file_name=None)
+            processed_batch = batch.map(tokenizer, batched=True, load_from_cache_file=False, num_proc=112, cache_file_name=None)
             processed_batch = processed_batch.remove_columns(['directions'])
             processed_batch = processed_batch.rename_column("directions_tok","directions")
             # pdb.set_trace()
@@ -268,7 +269,7 @@ def main():
             print(f"Skipping save for {batch_name}, folder already exists.")
     
         gc.collect()
-    '''
+
     # train_dataset=train_dataset.select(range(6))
     # train_dataset_new = train_dataset.map(tokenizer, batched=True,load_from_cache_file=False, num_proc=112,cache_file_name=None)
     # pdb.set_trace()
@@ -334,9 +335,12 @@ def main():
 
     if training_args.do_train:
         logger.warning("*** Train ***")
-        # if training_args.resume_from_checkpoint is not None:
-        checkpoint = training_args.resume_from_checkpoint
-        checkpoint = "/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_01_22_2025/checkpoint-60000"
+        if training_args.resume_from_checkpoint is not None:
+            checkpoint = training_args.resume_from_checkpoint
+            checkpoint = "/global/homes/h/haarika/pscratch/network-data-representation/all_mode_outputs/output_01_22_2025/checkpoint-60000"
+        else:
+            checkpoint = None
+        checkpoint=None
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
         trainer.save_model()
         metrics = train_result.metrics

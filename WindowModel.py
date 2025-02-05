@@ -279,7 +279,7 @@ class NetFoundRobertaEmbeddings(RobertaEmbeddings, NetFoundEmbeddingsWithMeta):
         embeddings = self.word_embeddings(input_ids)
         if self.position_embedding_type == "absolute":
             position_embeddings = self.position_embeddings(position_ids)
-            if embeddings.shape[1]!=950:
+            if embeddings.shape[1]!=1000:
                 pdb.set_trace()
             embeddings += position_embeddings
         embeddings = self.addMetaEmbeddings(embeddings, direction, iats, bytes, pkt_count, protocol)
@@ -597,7 +597,7 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         self.linearMetadataPred = nn.Linear(config.hidden_size, 3)
         self.dirPred = nn.Linear(config.hidden_size, 2)
         # self.aggregate = MeanPooling()
-        self.chunk_size=950
+        self.chunk_size=1000
         # The LM head weights require special treatment only when they are tied with the word embeddings
         self.update_keys_to_ignore(config, ["lm_head.decoder.weight"])
 
@@ -675,9 +675,9 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         direction_orig = directions.clone().to(torch.long)
         iat_orig = iats.clone()/1000 #adjusting as values are higher.
         bytes_orig = bytes.clone()/1000 #adjusting as values are higher.
-        direction_orig = direction_orig.repeat_interleave(19,dim=1)
-        iat_orig = iat_orig.repeat_interleave(19,dim=1)
-        bytes_orig=bytes_orig.repeat_interleave(19,dim=1)
+        direction_orig = direction_orig.repeat_interleave(9,dim=1)
+        iat_orig = iat_orig.repeat_interleave(9,dim=1)
+        bytes_orig=bytes_orig.repeat_interleave(9,dim=1)
         # pktCount_orig = pkt_count.clone()
         # print("these are the before",directions)
         # directions = self.maskMeta(burstMetasToBeMasked, directions)
@@ -685,10 +685,10 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         # print("____AFTER ",directions)
         iats = self.maskMeta(burstMetasToBeMasked, iats)
         bytes = self.maskMeta(burstMetasToBeMasked, bytes)
-        directions = directions.repeat_interleave(19,dim=1)
-        iats = iats.repeat_interleave(19,dim=1)
-        bytes=bytes.repeat_interleave(19,dim=1)
-        burstMetasToBeMasked=burstMetasToBeMasked.repeat_interleave(19,dim=1)
+        directions = directions.repeat_interleave(9,dim=1)
+        iats = iats.repeat_interleave(9,dim=1)
+        bytes=bytes.repeat_interleave(9,dim=1)
+        burstMetasToBeMasked=burstMetasToBeMasked.repeat_interleave(9,dim=1)
         # pktCount = self.maskMeta(burstMetasToBeMasked, pkt_count)
         # pdb.set_trace()
         batch_size = input_ids.size(0)
@@ -791,7 +791,7 @@ class NetFoundLanguageModelling(NetFoundPretrainedModel):
         # directn_logits = torch.softmax(self.dirPred(burstReps), -1)
         # Mask values of direction_orig using torch.where
         # Reshape burstMetasToBeMasked to match direction_orig
-        burstMetasToBeMasked = burstMetasToBeMasked.view(-1)  # Flatten to [9500]
+        burstMetasToBeMasked = burstMetasToBeMasked.view(-1)  # Flatten to [10000]
 
         # Apply masking
         direction_orig = torch.where(burstMetasToBeMasked.bool(), direction_orig, torch.tensor(-100, dtype=direction_orig.dtype, device=direction_orig.device))
